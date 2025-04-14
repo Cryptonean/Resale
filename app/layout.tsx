@@ -1,5 +1,5 @@
 import type React from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Mona_Sans as FontSans } from "next/font/google";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
@@ -14,10 +14,22 @@ const fontSans = FontSans({
 
 // Add viewport meta tag to ensure proper scaling on mobile devices
 export const metadata: Metadata = {
-  title: "VacayExchange - Buy & Sell Premium Vacation Memberships",
+  title: {
+    default: "VacayExchange - Buy & Sell Premium Vacation Memberships",
+    template: `%s - ${"siteConfig.name"}`,
+  },
   description:
     "The premier marketplace for buying and selling premium vacation memberships and holiday nights at exclusive resorts worldwide.",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
 };
 
 // Update the header in the layout to accommodate the centered navbar
