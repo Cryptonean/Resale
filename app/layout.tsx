@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import { Mona_Sans as FontSans } from "next/font/google";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
-import { MainNav } from "@/components/main-nav";
+import Navbar from "@/components/navbar";
 import { SiteFooter } from "@/components/site-footer";
+import Footer from "@/components/home/footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -34,13 +35,9 @@ export default function RootLayout({
         )}
       >
         <div className="flex flex-col min-h-screen">
-          <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container px-4 md:px-6">
-              <MainNav />
-            </div>
-          </header>
+          <Navbar />
           <main className="flex-1">{children}</main>
-          <SiteFooter />
+          <Footer />
         </div>
       </body>
     </html>
