@@ -73,7 +73,7 @@ export default function TestimonialsCarousel() {
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
             </div>
             <p className="text-muted-foreground mb-4">
-              "{testimonial.content}"
+              &quot;{testimonial.content}&quot;
             </p>
             <div className="flex items-center">
               <div className="w-10 h-10 rounded-full bg-slate-200 mr-3 flex items-center justify-center">
@@ -103,7 +103,7 @@ export default function TestimonialsCarousel() {
             <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
           </div>
           <p className="text-muted-foreground mb-4">
-            "{testimonials[currentIndex].content}"
+            &quot;{testimonials[currentIndex].content}&quot;
           </p>
           <div className="flex items-center">
             <div className="w-10 h-10 rounded-full bg-slate-200 mr-3 flex items-center justify-center">

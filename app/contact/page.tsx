@@ -51,7 +51,7 @@ export default function Contact() {
                 Email Us
               </h3>
               <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm">
-                Send us an email and we'll respond within 24 hours
+                Send us an email and we&apos;ll respond within 24 hours
               </p>
               <p className="font-medium text-sm sm:text-base">
                 info@vacayexchange.com
@@ -68,7 +68,7 @@ export default function Contact() {
                 Business Hours
               </h3>
               <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm">
-                We're available to assist you
+                We&apos;re available to assist you
               </p>
               <p className="font-medium text-sm sm:text-base">
                 Mon-Fri: 9AM - 6PM EST

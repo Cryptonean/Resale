@@ -1,38 +1,44 @@
-import { Shield, Clock, MapPin, Award, Users, Headphones } from "lucide-react"
+import { Shield, Clock, MapPin, Award, Users, Headphones } from "lucide-react";
 
 export default function WhyChooseUs() {
   const features = [
     {
       icon: <Shield className="w-12 h-12 text-[#F26D51]" />,
       title: "100% Financial Protection",
-      description: "Your money is safe with us. All bookings are financially protected for your peace of mind.",
+      description:
+        "Your money is safe with us. All bookings are financially protected for your peace of mind.",
     },
     {
       icon: <Clock className="w-12 h-12 text-[#F26D51]" />,
       title: "24/7 Customer Support",
-      description: "Our dedicated team is available around the clock to assist you with any questions or concerns.",
+      description:
+        "Our dedicated team is available around the clock to assist you with any questions or concerns.",
     },
     {
       icon: <MapPin className="w-12 h-12 text-[#F26D51]" />,
       title: "Handpicked Hotels",
-      description: "We carefully select accommodations that meet our high standards of quality and comfort.",
+      description:
+        "We carefully select accommodations that meet our high standards of quality and comfort.",
     },
     {
       icon: <Award className="w-12 h-12 text-[#F26D51]" />,
       title: "Best Price Guarantee",
-      description: "We promise you'll get the best rates available for all our tours and destinations.",
+      description:
+        "We promise you'll get the best rates available for all our tours and destinations.",
     },
     {
       icon: <Users className="w-12 h-12 text-[#F26D51]" />,
       title: "Experienced Tour Guides",
-      description: "Our professional guides have extensive knowledge and passion for the destinations they cover.",
+      description:
+        "Our professional guides have extensive knowledge and passion for the destinations they cover.",
     },
     {
       icon: <Headphones className="w-12 h-12 text-[#F26D51]" />,
       title: "Hassle-Free Booking",
-      description: "Our simple booking process makes planning your trip quick and easy.",
+      description:
+        "Our simple booking process makes planning your trip quick and easy.",
     },
-  ]
+  ];
 
   return (
     <section className="py-20 bg-white">
@@ -40,7 +46,8 @@ export default function WhyChooseUs() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            We're dedicated to making your travel experience exceptional from start to finish.
+            We&apos;re dedicated to making your travel experience exceptional
+            from start to finish.
           </p>
         </div>
 
@@ -58,5 +65,5 @@ export default function WhyChooseUs() {
         </div>
       </div>
     </section>
-  )
+  );
 }
