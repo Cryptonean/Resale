@@ -4,11 +4,11 @@ import { Facebook, Instagram, Twitter } from "lucide-react";
 export function SiteFooter() {
   return (
     <footer className="bg-slate-900 text-slate-200">
-      <div className="container px-4 md:px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container px-4 md:px-6 py-10 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">VacayExchange</h3>
-            <p className="text-slate-400 mb-4">
+            <p className="text-slate-400 mb-4 text-sm sm:text-base">
               The premier marketplace for buying and selling premium vacation
               memberships and holiday nights.
             </p>
@@ -29,8 +29,10 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="font-semibold mb-4 text-base sm:text-lg">
+              Quick Links
+            </h3>
+            <ul className="space-y-2 text-sm sm:text-base">
               <li>
                 <Link href="/" className="text-slate-400 hover:text-white">
                   Home
@@ -72,8 +74,8 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Support</h3>
-            <ul className="space-y-2">
+            <h3 className="font-semibold mb-4 text-base sm:text-lg">Support</h3>
+            <ul className="space-y-2 text-sm sm:text-base">
               <li>
                 <Link
                   href="/contact"
@@ -109,8 +111,8 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
-            <address className="not-italic text-slate-400">
+            <h3 className="font-semibold mb-4 text-base sm:text-lg">Contact</h3>
+            <address className="not-italic text-slate-400 text-sm sm:text-base">
               <p>123 Vacation Lane</p>
               <p>Paradise City, PC 12345</p>
               <p className="mt-2">Email: info@vacayexchange.com</p>
@@ -119,7 +121,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 mt-12 pt-8 text-center text-slate-400">
+        <div className="border-t border-slate-800 mt-10 pt-6 text-center text-slate-400 text-sm">
           <p>
             &copy; {new Date().getFullYear()} VacayExchange. All rights
             reserved.

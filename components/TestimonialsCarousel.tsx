@@ -37,6 +37,7 @@ const testimonials = [
   },
 ];
 
+// Improve testimonials carousel responsiveness
 export function TestimonialsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -50,10 +51,17 @@ export function TestimonialsCarousel() {
     );
   };
 
-  // Calculate indices for visible testimonials (show 3 on desktop, 1 on mobile)
+  // Calculate indices for visible testimonials (show 3 on desktop, 2 on tablet, 1 on mobile)
   const getVisibleTestimonials = () => {
     const result = [];
-    for (let i = 0; i < 3; i++) {
+    const count =
+      typeof window !== "undefined" && window.innerWidth >= 1024
+        ? 3
+        : typeof window !== "undefined" && window.innerWidth >= 640
+          ? 2
+          : 1;
+
+    for (let i = 0; i < count; i++) {
       const index = (currentIndex + i) % testimonials.length;
       result.push(testimonials[index]);
     }
@@ -62,28 +70,34 @@ export function TestimonialsCarousel() {
 
   return (
     <div className="relative">
-      <div className="hidden md:grid md:grid-cols-3 gap-8">
+      {/* Desktop and tablet view */}
+      <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
         {getVisibleTestimonials().map((testimonial, index) => (
-          <div key={index} className="bg-white p-6 rounded-xl shadow-sm border">
-            <div className="flex items-center gap-1 mb-4">
-              <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+          <div
+            key={index}
+            className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border"
+          >
+            <div className="flex items-center gap-1 mb-3 sm:mb-4">
+              <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
+              <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
+              <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
+              <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
+              <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
             </div>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-sm sm:text-base text-muted-foreground mb-4">
               "{testimonial.content}"
             </p>
             <div className="flex items-center">
-              <div className="w-10 h-10 rounded-full bg-slate-200 mr-3 flex items-center justify-center">
-                <span className="text-slate-600 font-medium">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-200 mr-3 flex items-center justify-center">
+                <span className="text-slate-600 font-medium text-sm sm:text-base">
                   {testimonial.name.charAt(0)}
                 </span>
               </div>
               <div>
-                <p className="font-medium">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground">
+                <p className="font-medium text-sm sm:text-base">
+                  {testimonial.name}
+                </p>
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   {testimonial.role}
                 </p>
               </div>
@@ -93,27 +107,29 @@ export function TestimonialsCarousel() {
       </div>
 
       {/* Mobile view - show only one testimonial */}
-      <div className="md:hidden">
-        <div className="bg-white p-6 rounded-xl shadow-sm border">
-          <div className="flex items-center gap-1 mb-4">
-            <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-            <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-            <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-            <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-            <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+      <div className="sm:hidden">
+        <div className="bg-white p-5 rounded-xl shadow-sm border">
+          <div className="flex items-center gap-1 mb-3">
+            <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+            <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+            <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+            <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+            <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
           </div>
-          <p className="text-muted-foreground mb-4">
+          <p className="text-sm text-muted-foreground mb-4">
             "{testimonials[currentIndex].content}"
           </p>
           <div className="flex items-center">
-            <div className="w-10 h-10 rounded-full bg-slate-200 mr-3 flex items-center justify-center">
-              <span className="text-slate-600 font-medium">
+            <div className="w-8 h-8 rounded-full bg-slate-200 mr-3 flex items-center justify-center">
+              <span className="text-slate-600 font-medium text-sm">
                 {testimonials[currentIndex].name.charAt(0)}
               </span>
             </div>
             <div>
-              <p className="font-medium">{testimonials[currentIndex].name}</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="font-medium text-sm">
+                {testimonials[currentIndex].name}
+              </p>
+              <p className="text-xs text-muted-foreground">
                 {testimonials[currentIndex].role}
               </p>
             </div>
@@ -122,29 +138,29 @@ export function TestimonialsCarousel() {
       </div>
 
       {/* Navigation buttons */}
-      <div className="flex justify-center mt-8 md:justify-end md:mt-4">
+      <div className="flex justify-center mt-6 sm:mt-8 md:justify-end md:mt-4">
         <Button
           variant="outline"
           size="icon"
-          className="mr-2 rounded-full"
+          className="mr-2 rounded-full h-9 w-9 sm:h-10 sm:w-10"
           onClick={prevSlide}
           aria-label="Previous testimonial"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
         </Button>
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full"
+          className="rounded-full h-9 w-9 sm:h-10 sm:w-10"
           onClick={nextSlide}
           aria-label="Next testimonial"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
         </Button>
       </div>
 
       {/* Dots indicator for mobile */}
-      <div className="flex justify-center gap-2 mt-4 md:hidden">
+      <div className="flex justify-center gap-2 mt-4 sm:hidden">
         {testimonials.map((_, index) => (
           <button
             key={index}

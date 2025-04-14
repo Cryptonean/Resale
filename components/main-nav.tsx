@@ -5,14 +5,13 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-// import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -41,12 +40,14 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
-// Update the MainNav component to have a rounded border and be centered
+// Improve the mobile navigation experience
 export function MainNav() {
   return (
-    <div className="flex justify-between items-center py-4 px-6 mx-auto max-w-6xl bg-white/80 backdrop-blur-md rounded-full border my-2">
-      <Link href="/" className="flex items-center space-x-2">
-        <span className="text-2xl font-bold text-teal-600">VacayExchange</span>
+    <div className="flex justify-between items-center py-3 sm:py-4 px-4 sm:px-6 mx-auto max-w-6xl bg-white/80 backdrop-blur-md rounded-full border my-2">
+      <Link href="/" className="flex items-center space-x-2 z-10">
+        <span className="text-xl sm:text-2xl font-bold text-teal-600">
+          VacayExchange
+        </span>
       </Link>
 
       <div className="hidden md:flex">
@@ -55,7 +56,7 @@ export function MainNav() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Buy</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
+                <ul className="grid gap-3 p-4 md:p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
@@ -108,7 +109,7 @@ export function MainNav() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Sell</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
+                <ul className="grid gap-3 p-4 md:p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
@@ -119,7 +120,7 @@ export function MainNav() {
                           Why Sell With Us?
                         </div>
                         <p className="text-sm leading-tight text-white/90">
-                          Reach thousands ofverified buyers and sell your
+                          Reach thousands of verified buyers and sell your
                           membership or holiday nights quickly and securely.
                         </p>
                       </a>
@@ -185,34 +186,77 @@ export function MainNav() {
       <div className="md:hidden">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon">
+            <Button variant="outline" size="icon" className="h-9 w-9">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right">
-            <nav className="flex flex-col gap-4 mt-8">
-              <Link href="/" className="text-lg font-medium">
-                Home
-              </Link>
-              <Link href="/buy-membership" className="text-lg font-medium">
-                Buy Membership
-              </Link>
-              <Link href="/sell-membership" className="text-lg font-medium">
-                Sell Membership
-              </Link>
-              <Link href="/buy-holiday-night" className="text-lg font-medium">
-                Buy Holiday Night
-              </Link>
-              <Link href="/dashboard" className="text-lg font-medium">
-                Dashboard
-              </Link>
-              <Link href="/contact" className="text-lg font-medium">
-                Contact
-              </Link>
+          <SheetContent side="right" className="w-[85vw] sm:w-[350px] pt-10">
+            <Link href="/" className="flex items-center mb-6">
+              <span className="text-xl font-bold text-teal-600">
+                VacayExchange
+              </span>
+            </Link>
+            <nav className="flex flex-col gap-5 mt-8">
+              <div className="space-y-3">
+                <h3 className="text-sm font-medium text-muted-foreground">
+                  Buy
+                </h3>
+                <Link
+                  href="/buy-membership"
+                  className="flex items-center text-base font-medium py-1"
+                >
+                  Buy Membership
+                </Link>
+                <Link
+                  href="/buy-holiday-night"
+                  className="flex items-center text-base font-medium py-1"
+                >
+                  Buy Holiday Night
+                </Link>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-sm font-medium text-muted-foreground">
+                  Sell
+                </h3>
+                <Link
+                  href="/sell-membership"
+                  className="flex items-center text-base font-medium py-1"
+                >
+                  Sell Membership
+                </Link>
+                <Link
+                  href="/sell-holiday-night"
+                  className="flex items-center text-base font-medium py-1"
+                >
+                  Sell Holiday Night
+                </Link>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-sm font-medium text-muted-foreground">
+                  Account
+                </h3>
+                <Link
+                  href="/dashboard"
+                  className="flex items-center text-base font-medium py-1"
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  href="/contact"
+                  className="flex items-center text-base font-medium py-1"
+                >
+                  Contact
+                </Link>
+              </div>
+
               <div className="flex flex-col gap-2 mt-4 pt-4 border-t">
-                <Button variant="outline">Sign In</Button>
-                <Button className="bg-teal-600 hover:bg-teal-700">
+                <Button variant="outline" className="w-full justify-center">
+                  Sign In
+                </Button>
+                <Button className="bg-teal-600 hover:bg-teal-700 w-full justify-center">
                   Sign Up
                 </Button>
               </div>

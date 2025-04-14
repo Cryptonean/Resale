@@ -1,60 +1,3 @@
-// import { Link } from "@heroui/link";
-// import { Snippet } from "@heroui/snippet";
-// import { Code } from "@heroui/code";
-// import { button as buttonStyles } from "@heroui/theme";
-
-// import { siteConfig } from "@/config/site";
-// import { title, subtitle } from "@/components/primitives";
-// import { GithubIcon } from "@/components/icons";
-
-// export default function Home() {
-//   return (
-//     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-//       <div className="inline-block max-w-xl text-center justify-center">
-//         <span className={title()}>Make&nbsp;</span>
-//         <span className={title({ color: "violet" })}>beautiful&nbsp;</span>
-//         <br />
-//         <span className={title()}>
-//           websites regardless of your design experience.
-//         </span>
-//         <div className={subtitle({ class: "mt-4" })}>
-//           Beautiful, fast and modern React UI library.
-//         </div>
-//       </div>
-
-//       <div className="flex gap-3">
-//         <Link
-//           isExternal
-//           className={buttonStyles({
-//             color: "primary",
-//             radius: "full",
-//             variant: "shadow",
-//           })}
-//           href={siteConfig.links.docs}
-//         >
-//           Documentation
-//         </Link>
-//         <Link
-//           isExternal
-//           className={buttonStyles({ variant: "bordered", radius: "full" })}
-//           href={siteConfig.links.github}
-//         >
-//           <GithubIcon size={20} />
-//           GitHub
-//         </Link>
-//       </div>
-
-//       <div className="mt-8">
-//         <Snippet hideCopyButton hideSymbol variant="bordered">
-//           <span>
-//             Get started by editing <Code color="primary">app/page.tsx</Code>
-//           </span>
-//         </Snippet>
-//       </div>
-//     </section>
-//   );
-// }
-
 import { Button } from "@/components/ui/button";
 import { MapPin, Star } from "lucide-react";
 import Image from "next/image";
@@ -64,7 +7,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[500px] sm:h-[550px] md:h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/placeholder.svg?height=1080&width=1920"
@@ -75,24 +18,24 @@ export default function Home() {
           />
         </div>
         <div className="container relative z-10 px-4 md:px-6 flex flex-col items-center text-center">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 max-w-4xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white mb-4 sm:mb-6 max-w-4xl">
             Your Dream Vacation Awaits
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-[800px]">
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 sm:mb-10 max-w-[800px]">
             Buy and sell premium memberships and holiday nights at exclusive
             resorts worldwide
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
             <Button
               size="lg"
-              className="bg-teal-600 hover:bg-teal-700 text-white px-8"
+              className="bg-teal-600 hover:bg-teal-700 text-white px-6 sm:px-8 h-12 text-base"
             >
               Buy Membership
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="text-white border-white hover:bg-white/10 px-8"
+              className="text-white border-white hover:bg-white/10 px-6 sm:px-8 h-12 text-base"
             >
               Sell Membership
             </Button>
@@ -114,7 +57,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {[1, 2, 3, 4, 5, 6].map((item) => (
             <div
               key={item}
@@ -132,32 +75,37 @@ export default function Home() {
                   {item % 2 === 0 ? "Membership" : "Holiday Night"}
                 </div>
               </div>
-              <div className="p-4">
+              <div className="p-3 sm:p-4">
                 <div className="flex items-center gap-1 mb-2">
-                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
+                  <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
+                  <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
+                  <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
+                  <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
                   <span className="text-xs text-muted-foreground ml-1">
                     (48 reviews)
                   </span>
                 </div>
-                <h3 className="font-semibold text-lg mb-1">
+                <h3 className="font-semibold text-base sm:text-lg mb-1">
                   Luxury Resort {item}
                 </h3>
-                <div className="flex items-center text-muted-foreground text-sm mb-2">
-                  <MapPin className="h-4 w-4 mr-1" />
+                <div className="flex items-center text-muted-foreground text-xs sm:text-sm mb-2">
+                  <MapPin className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                   <span>Bali, Indonesia</span>
                 </div>
-                <div className="flex justify-between items-center mt-4">
+                <div className="flex justify-between items-center mt-3 sm:mt-4">
                   <div>
-                    <span className="text-muted-foreground text-sm">From</span>
-                    <p className="font-bold text-lg">
+                    <span className="text-muted-foreground text-xs sm:text-sm">
+                      From
+                    </span>
+                    <p className="font-bold text-base sm:text-lg">
                       ${(499 + item * 100).toLocaleString()}
                     </p>
                   </div>
-                  <Button size="sm" className="bg-teal-600 hover:bg-teal-700">
+                  <Button
+                    size="sm"
+                    className="bg-teal-600 hover:bg-teal-700 h-8 text-xs sm:text-sm px-3"
+                  >
                     View Details
                   </Button>
                 </div>
@@ -292,32 +240,32 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="bg-teal-600 py-12 md:py-24">
+      <section className="bg-teal-600 py-10 sm:py-12 md:py-24">
         <div className="container px-4 md:px-6 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter mb-4 text-white">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter mb-3 sm:mb-4 text-white">
             Ready to Start Your Journey?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto">
             Join thousands of members who buy and sell premium vacation
             experiences every day
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-teal-600 hover:bg-white/90"
+              className="bg-white text-teal-600 hover:bg-white/90 h-11 sm:h-12"
             >
               Buy Membership
             </Button>
             <Button
               size="lg"
-              className="bg-teal-700 text-white hover:bg-teal-800"
+              className="bg-teal-700 text-white hover:bg-teal-800 h-11 sm:h-12"
             >
               Sell Membership
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="text-white border-white hover:bg-white/10"
+              className="text-white border-white hover:bg-white/10 h-11 sm:h-12"
             >
               Browse Holiday Nights
             </Button>
